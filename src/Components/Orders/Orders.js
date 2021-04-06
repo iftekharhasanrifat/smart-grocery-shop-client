@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { ListGroup } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserContext } from '../../App';
+import spinner from '../../images/spinner.gif'
 
 const Orders = () => {
     const [orders, setOrders] = useState([])
@@ -20,10 +21,13 @@ const Orders = () => {
     return (
         <div>
             {
-                successMessage&&<h2 className='text-center mt-5' style={{ color: 'green' }}>{successMessage}</h2>
+                successMessage && <h2 className='text-center mt-5' style={{ color: 'green' }}>{successMessage}</h2>
             }
             <div className="m-3">
                 <h4>You have : {orders.length} orders</h4>
+                {
+                    orders.length === 0 && <div className='text-center'><img src={spinner} alt="" /></div>
+                }
                 {
                     orders.map(order =>
                         <ListGroup.Item key={order._id}>Product Name : {order.name}
@@ -34,9 +38,9 @@ const Orders = () => {
                         </ListGroup.Item>
                     )
                 }
-                <button onClick={handleProceed} style={{float: 'right'}} className="mt-3 btn btn-success">Proceed Checkout</button>
+                <button onClick={handleProceed} style={{ float: 'right' }} className="mt-3 btn btn-success">Proceed Checkout</button>
             </div>
-            
+
         </div>
     );
 };

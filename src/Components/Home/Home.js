@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
-import './Home.css'
+import './Home.css';
+import spinner from '../../images/spinner.gif'
 const Home = () => {
     const [products, setProducts] = useState([])
     useEffect(()=>{
@@ -10,6 +11,9 @@ const Home = () => {
     },[])
     return (
         <div className='product-container'>
+            {
+                products.length===0&&<img src={spinner} alt=""/>
+            }
             {
                 products.map(product=><Product key={product._id} product={product}></Product>)
             }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ManageAllProducts from '../ManageAllProducts/ManageAllProducts';
 import SideMenu from '../SideMenu/SideMenu';
+import spinner from '../../images/spinner.gif'
 
 const ManageProduct = () => {
     const [products, setProducts] = useState([]);
@@ -22,6 +23,9 @@ const ManageProduct = () => {
                 </div>
                 <div className="col-md-8">
                     <h4 className='text-center m-4'>Manage product</h4>
+                    {
+                       products.length===0&&<div className='text-center'><img src={spinner} alt=""/></div>
+                    }
                     {
                         products.map(pd => <ManageAllProducts key={pd._id} pd={pd}></ManageAllProducts>)
 
