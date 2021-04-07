@@ -9,13 +9,14 @@ const AddProduct = () => {
   const [imageURL, setImageURL] = useState(null)
   const [successMessage, setSuccessMessage] = useState('');
   const onSubmit = data => {
-    const productData = {
-      imageURL: imageURL,
-      name: data.name,
-      quantity: data.quantity,
-      price: data.price
-    };
-    const url = `https://fast-headland-30459.herokuapp.com/addProducts`
+    if(imageURL){
+      const productData = {
+        imageURL: imageURL,
+        name: data.name,
+        quantity: data.quantity,
+        price: data.price
+      };
+      const url = `https://fast-headland-30459.herokuapp.com/addProducts`
     fetch(url, {
       method: 'POST',
       headers: {
@@ -24,8 +25,14 @@ const AddProduct = () => {
       body: JSON.stringify(productData)
     })
       .then(res => {
+        console.log(res);
         setSuccessMessage('Product added successfully');
       })
+    }
+    else{
+      alert('please wait')
+    }
+    
   }
 
 

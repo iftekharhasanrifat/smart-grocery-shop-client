@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import {
@@ -27,7 +27,9 @@ const Checkout = () => {
     checkIn: new Date(),
     checkOut: new Date(),
   });
+  let history = useHistory();
   const handleOrders = () => {
+    
     const {imageURL,name,price,quantity} = product;
     const newOrders = { ...loggedInUser, imageURL,name,price,quantity, ...selectedDate };
     console.log(newOrders);
@@ -38,7 +40,8 @@ const Checkout = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        console.log(data)
+        history.push("/orders");
       });
   };
 
@@ -102,9 +105,9 @@ const Checkout = () => {
 
       </MuiPickersUtilsProvider>
       <div className='text-center'>
-        <Link to="/orders" className="btn btn-danger" style={{ textDecoration: 'none', width: '270px' }} onClick={handleOrders}>
+        <button className="btn btn-danger" style={{ textDecoration: 'none', width: '270px' }} onClick={handleOrders}>
           Checkout
-      </Link>
+      </button>
       </div>
     </div>
   );
