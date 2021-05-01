@@ -26,3 +26,5 @@ It is a MERN stack web application where you can order grocery items online easi
 - React Router 
 - React Bootstrap 
 - Bootstrap
+
+[Back-end Repository](https://github.com/iftekharhasanrifat/smart-grocery-shop-server)
