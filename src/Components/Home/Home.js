@@ -5,7 +5,7 @@ import spinner from '../../images/spinner.gif'
 const Home = () => {
     const [products, setProducts] = useState([])
     useEffect(()=>{
-        fetch('https://fast-headland-30459.herokuapp.com/products')
+        fetch('https://smart-grocery-shop.onrender.com/products')
         .then(res=> res.json())
         .then(data => setProducts(data))
     },[])

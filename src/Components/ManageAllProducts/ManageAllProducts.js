@@ -5,7 +5,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 const ManageAllProducts = (props) => {
     const { _id, name, price, quantity } = props.pd;
     const deleteProduct = (e, _id) => {
-        fetch(`https://fast-headland-30459.herokuapp.com/delete/` + _id, {
+        fetch(`https://smart-grocery-shop.onrender.com/delete/` + _id, {
             method: 'DELETE',
 
         })

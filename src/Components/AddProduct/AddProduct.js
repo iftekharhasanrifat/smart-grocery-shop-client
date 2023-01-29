@@ -16,7 +16,7 @@ const AddProduct = () => {
         quantity: data.quantity,
         price: data.price
       };
-      const url = `https://fast-headland-30459.herokuapp.com/addProducts`
+      const url = `https://smart-grocery-shop.onrender.com/addProducts`
     fetch(url, {
       method: 'POST',
       headers: {

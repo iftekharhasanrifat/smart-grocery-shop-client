@@ -16,7 +16,7 @@ const Checkout = () => {
   let { id } = useParams();
   const [product, setProduct] = useState({});
   useEffect(() => {
-    fetch(`https://fast-headland-30459.herokuapp.com/product/${id}`)
+    fetch(`https://smart-grocery-shop.onrender.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
@@ -33,7 +33,7 @@ const Checkout = () => {
     const {imageURL,name,price,quantity} = product;
     const newOrders = { ...loggedInUser, imageURL,name,price,quantity, ...selectedDate };
     console.log(newOrders);
-    fetch("https://fast-headland-30459.herokuapp.com/addOrders", {
+    fetch("https://smart-grocery-shop.onrender.com/addOrders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newOrders),

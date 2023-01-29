@@ -9,7 +9,7 @@ const Orders = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(() => {
-        fetch(`https://fast-headland-30459.herokuapp.com/orders?email=${loggedInUser.email}`)
+        fetch(`https://smart-grocery-shop.onrender.com/orders?email=${loggedInUser.email}`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
